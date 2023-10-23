@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table" *ngIf="orders">
+    <thead>
+    <tr>
+      <th>ID</th> <th>Status</th> <th>Created At</th> <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let o of orders._embedded.orders">
+      <td>{{o.id}}</td>
+      <td>{{o.status}}</td>
+      <td>{{o.createdAt | date: 'dd/MM/yyyy HH:MM:SS'}}</td>
+      <td>
+        <button class="btn btn-outline-success" (click)="getOrderDetails(o)">Order Details</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

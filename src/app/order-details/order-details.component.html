@@ -1,0 +1,47 @@
+<div class="container mt-5" *ngIf="orderDetails">
+  <div class="row">
+    <div class="col-md-6">
+      <div clasd="card">
+        <div class="card-header">Order ID: {{orderId}}</div>
+        <div class="card-body row text-sm-start">
+          <ul class="list-group">
+            <li class="list-group-item">Order ID      : {{orderDetails.id}}</li>
+            <li class="list-group-item">Date          : {{orderDetails.createdAt | date: 'dd/MM/yyyy HH:MM:SS'}}</li>
+            <li class="list-group-item">Status        : {{orderDetails.status}}</li>
+            <li class="list-group-item">Customer ID   : {{orderDetails.customer.id}}</li>
+            <li class="list-group-item">Customer Name : {{orderDetails.customer.name}}</li>
+            <li class="list-group-item">Customer Email: {{orderDetails.customer.email}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-4">
+      <div class="card">
+        <div class="card-header">Product Items</div>
+        <div class="card-body">
+          <table class="table text-start">
+            <thead>
+              <tr>
+                <th>Product ID</th> <th>Product Name</th> <th>Price</th> <th>Discount</th> <th>Sold For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of orderDetails.productItemList">
+                <td>{{p.product.id}}</td>
+                <td>{{p.product.name}}</td>
+                <td>{{p.price | number: '.2'}} MAD</td>
+                <td>{{p.discount | number: '.2'}}</td>
+                <td>{{p.soldPrice | number: '.2'}} MAD</td>
+              </tr>
+              <tr>
+                <td class="text-bg-success" colspan="2"></td>
+                <td class="text-bg-success" colspan="2">TOTAL:</td>
+                <td class="text-bg-success">{{orderDetails.total | number: '.2'}} MAD</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

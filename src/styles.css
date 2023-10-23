@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+a {
+  cursor: pointer;
+}
+
+body.dark-mode {
+  background-color: rgb(31, 37, 44) !important;
+}
+
+body > .container * {
+  transition-delay: 0.2s !important;
+}
+
+body.dark-mode .container * {
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+}
+
+body.dark-mode .container button {
+  border-color: #4bb5ef!important;
+  color: #4bb5ef!important;
+}
+
+body.dark-mode .container button:hover {
+  background-color: #4bb5ef!important;
+  color: white!important;
+}
+
+body.dark-mode .container .card {
+  border-color: #4bb5ef;
+}
+
+body.dark-mode .container .card .card-header {
+  background-color: rgba(75, 181, 239, 0.2) !important;
+}

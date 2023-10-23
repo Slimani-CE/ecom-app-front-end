@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ecom-web-app';
+  title = 'Ecom Web App';
+  isDarkMode = false;
+  lightMode = document.createElement("div").innerHTML = `Light Mode`;
+  darkMode = document.createElement("div").innerHTML = `Dark Mode`;
+
+  toggleTheme() {
+    this.isDarkMode = ! this.isDarkMode;
+    document.body.classList.toggle("dark-mode");
+  }
 }
